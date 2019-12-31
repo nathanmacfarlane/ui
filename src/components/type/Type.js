@@ -11,35 +11,35 @@ const getFont = fontType => {
   }
 };
 
-const getTitle = (styles, children, level, onClick) => {
+const getTitle = (styles, children, level, onClick, className) => {
   switch (level) {
     case 1:
       return (
-        <h1 onClick={onClick} style={styles}>
+        <h1 onClick={onClick} style={styles} className={className}>
           {children}
         </h1>
       );
     case 2:
       return (
-        <h2 onClick={onClick} style={styles}>
+        <h2 onClick={onClick} style={styles} className={className}>
           {children}
         </h2>
       );
     case 3:
       return (
-        <h3 onClick={onClick} style={styles}>
+        <h3 onClick={onClick} style={styles} className={className}>
           {children}
         </h3>
       );
     case 4:
       return (
-        <h4 onClick={onClick} style={styles}>
+        <h4 onClick={onClick} style={styles} className={className}>
           {children}
         </h4>
       );
     default:
       return (
-        <h5 onClick={onClick} style={styles}>
+        <h5 onClick={onClick} style={styles} className={className}>
           {children}
         </h5>
       );
@@ -79,7 +79,13 @@ export default class Type extends Component {
           href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,500,900"
           rel="stylesheet"
         />
-        {getTitle(styles, this.props.children, this.props.level, onClick)}
+        {getTitle(
+          styles,
+          this.props.children,
+          this.props.level,
+          onClick,
+          this.props.className
+        )}
       </>
     );
   }
